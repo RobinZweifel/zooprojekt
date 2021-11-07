@@ -19,6 +19,32 @@ public class Animal {
     @Column(name = "age")
     private int age;
 
+    @Column(name = "color")
+    private String color;
+
+    @ManyToOne
+    @JoinColumn(name = "species_id")
+    private Species species;
+
+    public Animal(){
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public Species getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(Species species) {
+        this.species = species;
+    }
+
     public int getId() {
         return id;
     }

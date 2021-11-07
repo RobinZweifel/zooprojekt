@@ -20,6 +20,7 @@
 
                 <thead>
                 <tr>
+                    <th>Species</th>
                     <th>Name</th>
                     <th>Height</th>
                     <th>Age</th>
@@ -27,6 +28,7 @@
                 </thead>
                 <tbody>
                 <tr th:each="animal: ${animals}">
+                    <td th:text="${animal.species.name}" />
                     <td th:text="${animal.name}" />
                     <td th:text="${animal.weight}" />
                     <td th:text="${animal.age}" />

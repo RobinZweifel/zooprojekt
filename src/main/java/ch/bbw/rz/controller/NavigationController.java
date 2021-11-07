@@ -19,7 +19,7 @@ public class NavigationController {
 
     @GetMapping("/enclosures")
     public String getEnclosures(Model model){
-        model.addAttribute("activePage", "enclosures");
+        model.addAttribute("enclosures", dataController.getAllEnclosures());
         return "enclosures";
     }
 
