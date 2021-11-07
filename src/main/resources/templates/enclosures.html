@@ -15,6 +15,25 @@
     <div class="container mt-5">
         <div class="jumbotron">
             <h1 class="display-4">Enclosures</h1>
+
+            <table class="table table-bordered table-striped">
+
+                <thead>
+                <tr>
+                    <th>Animal Type</th>
+                    <th>Type</th>
+                    <th>Capacity</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="enclosure: ${enclosures}">
+                    <td th:text="${enclosure.species.name}" />
+                    <td th:text="${enclosure.type}" />
+                    <td th:text="${enclosure.capacity}" />
+                </tr>
+                </tbody>
+
+            </table>
         </div>
     </div>
 </main>
