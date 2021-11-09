@@ -22,8 +22,10 @@
                 <tr>
                     <th>Species</th>
                     <th>Name</th>
-                    <th>Height</th>
+                    <th>Weight</th>
                     <th>Age</th>
+                    <th>Delete</th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -32,7 +34,9 @@
                     <td th:text="${animal.name}" />
                     <td th:text="${animal.weight}" />
                     <td th:text="${animal.age}" />
+                    <td><button type="button" class="btn btn-danger">Delete</button></td>
                 </tr>
+
                 </tbody>
 
             </table>

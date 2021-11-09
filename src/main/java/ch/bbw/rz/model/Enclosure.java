@@ -2,43 +2,35 @@ package ch.bbw.rz.model;
 
 import javax.persistence.*;
 
+@Table(name = "enclosure", indexes = {
+        @Index(name = "zookeeper_id", columnList = "zookeeper_id")
+})
 @Entity
-@Table(name = "enclosure")
 public class Enclosure {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", unique = true)
-    private int id;
+    @Column(name = "id", nullable = false)
+    private Integer id;
 
-    @Column(name = "type")
-    private String type;
-
-    @Column(name = "capacity")
-    private int capacity;
-
-    @ManyToOne
-    @JoinColumn(name = "species_id")
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "species_id", nullable = false)
     private Species species;
 
-    public Enclosure(){
+    @Column(name = "capacity", nullable = false)
+    private Integer capacity;
 
+    @Column(name = "type", nullable = false)
+    private String type;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "zookeeper_id", nullable = false)
+    private Zookeeper zookeeper;
+
+    public Zookeeper getZookeeper() {
+        return zookeeper;
     }
 
-    public Species getSpecies() {
-        return species;
-    }
-
-    public void setSpecies(Species species) {
-        this.species = species;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setZookeeper(Zookeeper zookeeper) {
+        this.zookeeper = zookeeper;
     }
 
     public String getType() {
@@ -49,11 +41,27 @@ public class Enclosure {
         this.type = type;
     }
 
-    public int getCapacity() {
+    public Integer getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(int capacity) {
+    public void setCapacity(Integer capacity) {
         this.capacity = capacity;
+    }
+
+    public Species getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(Species species) {
+        this.species = species;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

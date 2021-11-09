@@ -23,6 +23,8 @@
                     <th>Animal Type</th>
                     <th>Type</th>
                     <th>Capacity</th>
+                    <th>Keeper</th>
+                    <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -30,6 +32,8 @@
                     <td th:text="${enclosure.species.name}" />
                     <td th:text="${enclosure.type}" />
                     <td th:text="${enclosure.capacity}" />
+                    <td th:text="${enclosure.zookeeper.name}"></td>
+                    <td><button type="button" class="btn btn-danger">Delete</button></td>
                 </tr>
                 </tbody>
 
