@@ -23,4 +23,16 @@ public class NavigationController {
         return "enclosures";
     }
 
+    @GetMapping("/zookeepers")
+    public String getZookeepers(Model model){
+        model.addAttribute("zookeepers", dataController.getAllZookeepers());
+        return "zookeepers";
+    }
+
+    @GetMapping("/addAnimal")
+    public String getAddAnimal(Model model){
+        model.addAttribute("addAnimal");
+        return "addAnimal";
+    }
+
 }

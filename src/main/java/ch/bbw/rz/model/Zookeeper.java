@@ -1,9 +1,6 @@
 package ch.bbw.rz.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Table(name = "zookeeper")
 @Entity
@@ -17,6 +14,18 @@ public class Zookeeper {
 
     @Column(name = "age", nullable = false)
     private Integer age;
+
+    @OneToOne(mappedBy = "zookeeper", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private Enclosure enclosure;
+
+    public Enclosure getEnclosure() {
+        return enclosure;
+    }
+
+    public void setEnclosure(Enclosure enclosure) {
+        this.enclosure = enclosure;
+    }
 
     public Integer getAge() {
         return age;

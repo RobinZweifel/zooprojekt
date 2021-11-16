@@ -21,8 +21,9 @@ public class Enclosure {
     @Column(name = "type", nullable = false)
     private String type;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "zookeeper_id", nullable = false)
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "zookeeper_id")
     private Zookeeper zookeeper;
 
     public Zookeeper getZookeeper() {

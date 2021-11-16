@@ -2,8 +2,10 @@ package ch.bbw.rz.controller;
 
 import ch.bbw.rz.model.Animal;
 import ch.bbw.rz.model.Enclosure;
+import ch.bbw.rz.model.Zookeeper;
 import ch.bbw.rz.repos.AnimalRepository;
 import ch.bbw.rz.repos.EnclosureRepository;
+import ch.bbw.rz.repos.ZookeeperRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +18,9 @@ public class DataController {
 
     @Autowired
     private EnclosureRepository enclosureRepository;
+
+    @Autowired
+    private ZookeeperRepository zookeeperRepository;
 
     @PostMapping(path = "/addAnimal")
     public @ResponseBody
@@ -46,6 +51,9 @@ public class DataController {
         return enclosureRepository.findAll();
     }
 
-
+    @GetMapping(path = "/allZookeepers")
+    public @ResponseBody Iterable<Zookeeper> getAllZookeepers(){
+        return zookeeperRepository.findAll();
+    }
 
 }
