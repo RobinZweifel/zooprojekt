@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" class="h-100">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" class="h-100" xmlns:form="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
   <title>Spring MVC</title>
@@ -12,12 +12,36 @@
 <div th:replace="~{fragments/header :: header}"></div>
 
 <main role="main" class="flex-shrink-0">
-  <div class="container mt-5">
-    <div class="jumbotron">
-      <h1 class="display-4">Add Animal</h1>
-
+  <form>
+    <div class="container mt-5">
+      <div class="jumbotron">
+        <h1 class="display-4">Add Animal</h1>
+        <div class="rendered-form">
+          <div class="formbuilder-text form-group field-name">
+            <label for="name" class="formbuilder-text-label">Name<span class="formbuilder-required">*</span></label>
+            <input type="text" class="form-control" name="name" access="false" maxlength="10" id="name" required="required" aria-required="true">
+          </div>
+          <div class="formbuilder-text form-group field-weight">
+            <label for="weight" class="formbuilder-text-label">Weight<span class="formbuilder-required">*</span></label>
+            <input type="text" class="form-control" name="weight" access="false" id="weight" required="required" aria-required="true">
+          </div>
+          <div class="formbuilder-text form-group field-color">
+            <label for="color" class="formbuilder-text-label">Color</label>
+            <input type="text" class="form-control" name="color" access="false" id="color">
+          </div>
+          <div class="formbuilder-text form-group field-speciesId">
+            <label for="speciesId" class="formbuilder-text-label">Species Id<span class="formbuilder-required">*</span></label>
+            <input type="text" class="form-control" name="speciesId" access="false" id="speciesId" required="required" aria-required="true">
+          </div>
+          <div class="formbuilder-text form-group field-enclosureId">
+            <label for="enclosureId" class="formbuilder-text-label">Enclosure Id<span class="formbuilder-required">*</span></label>
+            <input type="text" class="form-control" name="enclosureId" access="false" id="enclosureId" required="required" aria-required="true">
+          </div>
+          <a type="submit" class="btn btn-success" th:href="@{/animals}">Submit</a>
+        </div>
+      </div>
     </div>
-  </div>
+  </form>
 </main>
 
 <div th:replace="~{fragments/footer :: footer}"></div>
