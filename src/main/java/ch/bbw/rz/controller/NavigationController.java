@@ -9,23 +9,29 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class NavigationController {
 
     @Autowired
-    DataController dataController;
+    AnimalController animalController;
+
+    @Autowired
+    EnclosureController enclosureController;
+
+    @Autowired
+    ZookeeperController zookeeperController;
 
     @GetMapping("/animals")
     public String getAnimals(Model model){
-        model.addAttribute("animals", dataController.getAllAnimals());
+        model.addAttribute("animals", animalController.getAllAnimals());
         return "animals";
     }
 
     @GetMapping("/enclosures")
     public String getEnclosures(Model model){
-        model.addAttribute("enclosures", dataController.getAllEnclosures());
+        model.addAttribute("enclosures", enclosureController.getAllEnclosures());
         return "enclosures";
     }
 
     @GetMapping("/zookeepers")
     public String getZookeepers(Model model){
-        model.addAttribute("zookeepers", dataController.getAllZookeepers());
+        model.addAttribute("zookeepers", zookeeperController.getAllZookeepers());
         return "zookeepers";
     }
 

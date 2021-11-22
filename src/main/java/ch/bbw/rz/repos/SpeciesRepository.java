@@ -1,7 +1,8 @@
 package ch.bbw.rz.repos;
 
 import ch.bbw.rz.model.Species;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface SpeciesRepository extends CrudRepository<Species, Integer> {
+public interface SpeciesRepository extends JpaRepository<Species, Integer> {
+    Species findByName(String name);
 }
