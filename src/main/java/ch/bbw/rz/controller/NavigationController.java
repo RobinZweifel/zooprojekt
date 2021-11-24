@@ -22,7 +22,13 @@ public class NavigationController {
         model.addAttribute("animals", animalController.getAllAnimals());
         return "animals";
     }
-
+/*
+    @DeleteMapping("/deleteAnimal/{}")
+    public String deleteAnimalById(int id){
+        animalController.deleteById(id);
+        return "finished deleting";
+    }
+*/
     @GetMapping("/enclosures")
     public String getEnclosures(Model model){
         model.addAttribute("enclosures", enclosureController.getAllEnclosures());
@@ -40,5 +46,4 @@ public class NavigationController {
         model.addAttribute("addAnimal");
         return "addAnimal";
     }
-
 }

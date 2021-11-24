@@ -24,7 +24,11 @@ public class EnclosureController {
         return enclosureService.getEnclosures();
     }
 
-
+    @GetMapping(path = "/deleteEnclosure/{id}")
+    public String deleteById(@PathVariable("id") int id) {
+        enclosureService.deleteEnclosure(id);
+        return "EnclosureDeleted";
+    }
 
 
 }

@@ -33,7 +33,7 @@
                     <td th:text="${enclosure.type}" />
                     <td th:text="${enclosure.capacity}" />
                     <td th:text="${enclosure.zookeeper.name}"></td>
-                    <td><button type="button" class="btn btn-danger">Delete</button></td>
+                    <td><a th:href="@{/deleteEnclosure/{id}(id=${enclosure.id})}" type="button" class="btn btn-danger">Delete</a></td>
                 </tr>
                 </tbody>
 

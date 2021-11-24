@@ -26,7 +26,19 @@ public class Animal {
     @JoinColumn(name = "species_id")
     private Species species;
 
+    @ManyToOne
+    @JoinColumn(name = "enclosure_id")
+    private Enclosure enclosure;
+
     public Animal(){
+    }
+
+    public Enclosure getEnclosure() {
+        return enclosure;
+    }
+
+    public void setEnclosure(Enclosure enclosure) {
+        this.enclosure = enclosure;
     }
 
     public String getColor() {
