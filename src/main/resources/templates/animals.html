@@ -35,13 +35,9 @@
                     <td th:text="${animal.age}" />
                     <td><a th:href="@{/deleteAnimal/{id}(id=${animal.id})}" type="button" class="btn btn-danger">Delete</a></td>
                 </tr>
-
                 <a class="btn btn-success" th:href="@{/addAnimal}">Add Animal</a>
-
                 </tbody>
-
             </table>
-
         </div>
     </div>
 </main>

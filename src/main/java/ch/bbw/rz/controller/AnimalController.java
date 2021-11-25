@@ -14,12 +14,15 @@ public class AnimalController {
 
     @PostMapping(path = "/addAnimal")
     public @ResponseBody
-    Animal newAnimal (@RequestBody Animal animal){
+    Animal newAnimal(Animal animal) {
+        System.out.println("MOINLEUDETRYMACSHIER");
+
         return animalService.saveAnimal(animal);
     }
 
     @GetMapping(path = "/allAnimals")
-    public @ResponseBody Iterable<Animal> getAllAnimals(){
+    public @ResponseBody
+    Iterable<Animal> getAllAnimals() {
         return animalService.getAnimals();
     }
 

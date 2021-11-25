@@ -6,14 +6,14 @@ import javax.persistence.*;
 @Entity
 public class Zookeeper {
     @Id
-    @Column(name = "id", nullable = false)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
     @Column(name = "name", nullable = false)
     private String name;
 
     @Column(name = "age", nullable = false)
-    private Integer age;
+    private int age;
 
     @OneToOne(mappedBy = "zookeeper", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
@@ -27,11 +27,11 @@ public class Zookeeper {
         this.enclosure = enclosure;
     }
 
-    public Integer getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -43,11 +43,11 @@ public class Zookeeper {
         this.name = name;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 }

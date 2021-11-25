@@ -1,6 +1,8 @@
 package ch.bbw.rz.service;
 
 import ch.bbw.rz.model.Animal;
+import ch.bbw.rz.model.Enclosure;
+import ch.bbw.rz.model.Species;
 import ch.bbw.rz.repos.AnimalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +15,18 @@ public class AnimalService {
     private AnimalRepository animalRepository;
 
     public Animal saveAnimal(Animal animal) {
+        animal.setName("TestAnimal");
+        animal.setAge(10);
+        animal.setWeight(129);
+        animal.setColor("red");
+        Species species = new Species();
+        species.setId(1);
+        animal.setSpecies(species);
+        Enclosure enclosure = new Enclosure();
+        enclosure.setId(1);
+        animal.setEnclosure(enclosure);
         return animalRepository.save(animal);
+
     }
 
     public List<Animal> saveAnimals(List<Animal> animals) {

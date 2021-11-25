@@ -9,15 +9,14 @@ import javax.persistence.*;
 public class Enclosure {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private Integer id;
+    private int id;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "species_id", nullable = false)
     private Species species;
 
     @Column(name = "capacity", nullable = false)
-    private Integer capacity;
+    private int capacity;
 
     @Column(name = "type", nullable = false)
     private String type;
@@ -43,11 +42,11 @@ public class Enclosure {
         this.type = type;
     }
 
-    public Integer getCapacity() {
+    public int getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(Integer capacity) {
+    public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
 
@@ -59,11 +58,11 @@ public class Enclosure {
         this.species = species;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 }

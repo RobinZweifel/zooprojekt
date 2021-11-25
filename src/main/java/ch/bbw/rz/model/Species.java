@@ -7,7 +7,6 @@ import javax.persistence.*;
 public class Species {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", unique = true)
     private int id;
 
     @Column(name = "name")

@@ -1,13 +1,17 @@
 package ch.bbw.rz.model;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "animal")
+@DynamicInsert
+@DynamicUpdate
 public class Animal {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "name")
@@ -30,7 +34,18 @@ public class Animal {
     @JoinColumn(name = "enclosure_id")
     private Enclosure enclosure;
 
-    public Animal(){
+    public Animal(int id, String name, int weight, int age, String color, Species species, Enclosure enclosure) {
+        this.id = id;
+        this.name = name;
+        this.weight = weight;
+        this.age = age;
+        this.color = color;
+        this.species = species;
+        this.enclosure = enclosure;
+    }
+
+    public Animal() {
+
     }
 
     public Enclosure getEnclosure() {
