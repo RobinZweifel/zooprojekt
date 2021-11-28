@@ -63,4 +63,5 @@ public class NavigationController {
         model.addAttribute("zookeeper", new Zookeeper());
         return "addZookeeper";
     }
+
 }
