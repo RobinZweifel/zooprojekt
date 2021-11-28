@@ -1,18 +1,23 @@
 package ch.bbw.rz.model;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.*;
 
 @Table(name = "zookeeper")
 @Entity
+@DynamicInsert
+@DynamicUpdate
 public class Zookeeper {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "age", nullable = false)
+    @Column(name = "age")
     private int age;
 
     @OneToOne(mappedBy = "zookeeper", cascade = CascadeType.ALL)

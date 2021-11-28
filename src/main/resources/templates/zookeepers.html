@@ -31,8 +31,10 @@
                     <td th:text="${zookeeper.name}" />
                     <td th:text="${zookeeper.age}" />
                     <td th:text="${zookeeper.enclosure.species.name}" />
-                    <td th:href=""><button type="button" class="btn btn-danger">Delete</button></td>
+                    <td><a th:href="@{/deleteZookeeper/{id}(id=${zookeeper.id})}" type="button" class="btn btn-danger">Delete</a></td>
                 </tr>
+                <a class="btn btn-success" th:href="@{/addZookeeper}">Add Zookeeper</a>
+
                 </tbody>
 
             </table>

@@ -14,8 +14,7 @@ public class EnclosureController {
     private EnclosureService enclosureService;
 
     @PostMapping(path = "/addEnclosure")
-    public @ResponseBody
-    Enclosure newEnclosure (@RequestBody Enclosure enclosure){
+    public @ResponseBody Enclosure newEnclosure ( Enclosure enclosure){
         return enclosureService.saveEnclosure(enclosure);
     }
 

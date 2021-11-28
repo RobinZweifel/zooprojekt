@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" class="h-100" xmlns:form="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>Spring MVC</title>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link th:href="@{styles/main.css}" rel="stylesheet"/>
+</head>
+<body class="d-flex flex-column h-100">
+
+<div th:replace="~{fragments/header :: header}"></div>
+
+<main role="main" class="flex-shrink-0">
+  <form action="#" th:action="@{/addEnclosure}" method="post" th:object="${enclosure}">
+    <div class="container mt-5">
+      <div class="jumbotron">
+        <h1 class="display-4">Add Enclosure</h1>
+        <div class="rendered-form">
+          <div class="formbuilder-text form-group field-type">
+            <label for="type" class="formbuilder-text-label">Type<span class="formbuilder-required">*</span></label>
+            <input type="text" class="form-control" th:field="*{type}" name="name" access="false" maxlength="10" id="type" required="required" aria-required="true">
+          </div>
+          <div class="formbuilder-text form-group field-capacity">
+            <label for="capacity" class="formbuilder-text-label">Capacity<span class="formbuilder-required">*</span></label>
+            <input type="text" class="form-control" th:field="*{capacity}" name="weight" access="false" id="capacity" required="required" aria-required="true">
+          </div>
+          <div class="formbuilder-text form-group field-zookeeperId">
+            <label for="zookeeperId" class="formbuilder-text-label">Zookeeper Id</label>
+            <input type="text" class="form-control" th:field="*{zookeeper.id}" name="zookeeperId" access="false" id="zookeeperId">
+          </div>
+          <div class="formbuilder-text form-group field-speciesId">
+            <label for="speciesId" class="formbuilder-text-label">Species Id<span class="formbuilder-required">*</span></label>
+            <input type="text" class="form-control" th:field="*{species.id}" name="speciesId" access="false" id="speciesId" required="required" aria-required="true">
+          </div>
+          <input type="submit" value="Submit" th:href="@{/enclosures}"/>
+        </div>
+      </div>
+    </div>
+  </form>
+</main>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+        crossorigin="anonymous">
+</script>
+<script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js">
+</script>
+</body>
+</html>

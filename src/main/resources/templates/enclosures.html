@@ -35,6 +35,8 @@
                     <td th:text="${enclosure.zookeeper.name}"></td>
                     <td><a th:href="@{/deleteEnclosure/{id}(id=${enclosure.id})}" type="button" class="btn btn-danger">Delete</a></td>
                 </tr>
+                <a class="btn btn-success" th:href="@{/addEnclosure}">Add Enclosure</a>
+
                 </tbody>
 
             </table>

@@ -13,16 +13,12 @@ public class AnimalController {
     private AnimalService animalService;
 
     @PostMapping(path = "/addAnimal")
-    public @ResponseBody
-    Animal newAnimal(Animal animal) {
-        System.out.println("MOINLEUDETRYMACSHIER");
-
+    public @ResponseBody Animal newAnimal(Animal animal) {
         return animalService.saveAnimal(animal);
     }
 
     @GetMapping(path = "/allAnimals")
-    public @ResponseBody
-    Iterable<Animal> getAllAnimals() {
+    public @ResponseBody Iterable<Animal> getAllAnimals() {
         return animalService.getAnimals();
     }
 
@@ -31,4 +27,10 @@ public class AnimalController {
         animalService.deleteAnimal(id);
         return "AnimalDeleted";
     }
+    /*
+    @PutMapping(path = "/updateAnimal/{id}")
+    public String editAnimal(@PathVariable("id") int id){
+        animalService.
+    }
+     */
 }

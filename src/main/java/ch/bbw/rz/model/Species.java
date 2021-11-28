@@ -1,12 +1,17 @@
 package ch.bbw.rz.model;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "species")
+@DynamicInsert
+@DynamicUpdate
 public class Species {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "name")

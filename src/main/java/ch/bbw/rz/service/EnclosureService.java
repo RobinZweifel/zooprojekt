@@ -1,6 +1,7 @@
 package ch.bbw.rz.service;
 
 import ch.bbw.rz.model.Enclosure;
+import ch.bbw.rz.model.Species;
 import ch.bbw.rz.repos.EnclosureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,13 @@ public class EnclosureService {
     private EnclosureRepository enclosureRepository;
 
     public Enclosure saveEnclosure(Enclosure enclosure) {
+        /*
+        enclosure.setType("Type");
+        enclosure.setCapacity(10);
+        enclosure.setId(11);
+        Species species = new Species();
+        enclosure.setSpecies(species);
+        */
         return enclosureRepository.save(enclosure);
     }
 

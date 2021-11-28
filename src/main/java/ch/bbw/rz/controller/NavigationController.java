@@ -1,12 +1,12 @@
 package ch.bbw.rz.controller;
 
 import ch.bbw.rz.model.Animal;
-import ch.bbw.rz.service.ZookeeperService;
+import ch.bbw.rz.model.Enclosure;
+import ch.bbw.rz.model.Zookeeper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class NavigationController {
@@ -18,15 +18,18 @@ public class NavigationController {
     EnclosureController enclosureController;
 
     @Autowired
-    private ZookeeperService ZookeeperService;
-    @Autowired
     ZookeeperController zookeeperController;
 
     @GetMapping("/animals")
     public String getAnimals(Model model){
-
         model.addAttribute("animals", animalController.getAllAnimals());
         return "animals";
+    }
+
+    @GetMapping("/addAnimal")
+    public String getAddAnimal(Model model){
+        model.addAttribute("animal", new Animal());
+        return "addAnimal";
     }
 
     /*
@@ -43,16 +46,21 @@ public class NavigationController {
         return "enclosures";
     }
 
+    @GetMapping("/addEnclosure")
+    public String getAddEnclosure(Model model){
+        model.addAttribute("enclosure", new Enclosure());
+        return "addEnclosure";
+    }
+
     @GetMapping("/zookeepers")
     public String getZookeepers(Model model){
-        model.addAttribute("zookeepers", ZookeeperService.getZookeepers());
+        model.addAttribute("zookeepers", zookeeperController.getAllZookeepers());
         return "zookeepers";
     }
 
-    @GetMapping("/addAnimal")
-    public String getAddAnimal(Model model){
-        model.addAttribute("animal", new Animal());
-        System.out.println("MOIN");
-        return "addAnimal";
+    @GetMapping("/addZookeeper")
+    public String getAddZookeeper(Model model){
+        model.addAttribute("zookeeper", new Zookeeper());
+        return "addZookeeper";
     }
 }
