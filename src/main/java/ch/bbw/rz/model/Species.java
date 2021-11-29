@@ -4,6 +4,7 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "species")
@@ -17,7 +18,18 @@ public class Species {
     @Column(name = "name")
     private String name;
 
+    @OneToMany
+    List<Animal> animals;
+
     public Species() {
+    }
+
+    public List<Animal> getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(List<Animal> animals) {
+        this.animals = animals;
     }
 
     public int getId() {

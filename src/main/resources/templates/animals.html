@@ -20,6 +20,7 @@
 
                 <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Species</th>
                     <th>Name</th>
                     <th>Weight</th>
@@ -29,6 +30,7 @@
                 </thead>
                 <tbody>
                 <tr th:each="animal: ${animals}">
+                    <td th:text="${animal.id}" />
                     <td th:text="${animal.species.name}" />
                     <td th:text="${animal.name}" />
                     <td th:text="${animal.weight}" />
@@ -36,6 +38,8 @@
                     <td><a th:href="@{/deleteAnimal/{id}(id=${animal.id})}" type="button" class="btn btn-danger">Delete</a></td>
                 </tr>
                 <a class="btn btn-success" th:href="@{/addAnimal}">Add Animal</a>
+                <a class="btn btn-success" th:href="@{/updateAnimal}" th:method="put">Update Animal</a>
+
                 </tbody>
             </table>
         </div>

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
 @Controller
 public class NavigationController {
 
@@ -31,6 +32,14 @@ public class NavigationController {
         model.addAttribute("animal", new Animal());
         return "addAnimal";
     }
+
+    /*
+    @PutMapping ("/updateAnimal")
+    public String getAupdateAnimal(Model model){
+        model.addAttribute("animal", new Animal());
+        return "animalUpdated";
+    }
+    */
 
     /*
     @PostMapping Mapping("/deleteAnimal/{}")

@@ -30,13 +30,23 @@ public class AnimalService {
         animal.setEnclosure(enclosure);
          */
         return animalRepository.save(animal);
-
     }
+
     public String deleteAnimal(int id) {
         animalRepository.deleteById(id);
         return "Animal removed !! " + id;
     }
 
+    public String updateAnimal(int id) {
+        System.out.println("TESSSSSSSSSSSSSTTTT");
+        Animal animalNew = animalRepository.findById(id).orElse(null);
+        animalNew.setName("Test");
+        animalRepository.save(animalNew);
+        return "Success";
+    }
+
+
+    
     /*
     public List<Animal> saveAnimals(List<Animal> animals) {
         return animalRepository.saveAll(animals);
